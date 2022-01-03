@@ -1,5 +1,10 @@
 import {Component} from 'react'
-import {ChoicesContainer, ChoiceButton, ChoiceImage} from './styledComponents'
+import {
+  ChoicesContainer,
+  ChoicesDivision,
+  ChoiceButton,
+  ChoiceImage,
+} from './styledComponents'
 import Rules from '../Rules'
 
 class RockPaperScissor extends Component {
@@ -13,11 +18,13 @@ class RockPaperScissor extends Component {
 
     return (
       <ChoicesContainer>
-        {choices.map(eachChoice => (
-          <ChoiceButton onClick={this.onClickChoice} key={eachChoice.id}>
-            <ChoiceImage src={eachChoice.imageUrl} alt={eachChoice.id} />
-          </ChoiceButton>
-        ))}
+        <ChoicesDivision>
+          {choices.map(eachChoice => (
+            <ChoiceButton onClick={this.onClickChoice} key={eachChoice.id}>
+              <ChoiceImage src={eachChoice.imageUrl} alt={eachChoice.id} />
+            </ChoiceButton>
+          ))}
+        </ChoicesDivision>
         <Rules />
       </ChoicesContainer>
     )

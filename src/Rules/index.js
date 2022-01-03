@@ -1,8 +1,9 @@
 import Popup from 'reactjs-popup'
 import {RiCloseLine} from 'react-icons/ri'
+import './index.css'
 
 const Rules = () => (
-  <div className="popup-container">
+  <div className="popup">
     <Popup
       modal
       trigger={

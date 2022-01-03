@@ -43,12 +43,7 @@ class App extends Component {
       showResults: true,
     })
 
-    // const random = Math.floor(Math.random() * choicesList.length)
-
     const randomChoiceImage = choicesList[random]
-
-    // const [activeChoices] = activeChoiceImage
-    // console.log(randomChoiceImage.id)
 
     let result
 
@@ -56,28 +51,37 @@ class App extends Component {
       case 'ROCK':
         if (randomChoiceImage.id === 'SCISSORS') {
           result = 'WON'
+          this.setState(prevState => ({scoreValue: prevState.scoreValue + 1}))
         } else if (randomChoiceImage.id === 'ROCK') {
           result = 'DRAW'
+          this.setState(prevState => ({scoreValue: prevState.scoreValue}))
         } else {
           result = 'LOSS'
+          this.setState(prevState => ({scoreValue: prevState.scoreValue - 1}))
         }
         break
       case 'SCISSORS':
         if (randomChoiceImage.id === 'SCISSORS') {
           result = 'DRAW'
+          this.setState(prevState => ({scoreValue: prevState.scoreValue}))
         } else if (randomChoiceImage.id === 'ROCK') {
           result = 'LOSS'
+          this.setState(prevState => ({scoreValue: prevState.scoreValue - 1}))
         } else {
-          result = 'WIN'
+          result = 'WON'
+          this.setState(prevState => ({scoreValue: prevState.scoreValue + 1}))
         }
         break
       case 'PAPER':
         if (randomChoiceImage.id === 'SCISSORS') {
           result = 'LOSS'
+          this.setState(prevState => ({scoreValue: prevState.scoreValue - 1}))
         } else if (randomChoiceImage.id === 'ROCK') {
           result = 'WON'
+          this.setState(prevState => ({scoreValue: prevState.scoreValue + 1}))
         } else {
           result = 'DRAW'
+          this.setState(prevState => ({scoreValue: prevState.scoreValue}))
         }
         break
 
@@ -95,14 +99,15 @@ class App extends Component {
       showResults,
       randomChoice,
     } = this.state
-    console.log(`activeChoice`, activeChoice)
+    // console.log('Score', scoreValue)
+    // console.log(`activeChoice`, activeChoice)
     const activeChoiceImage = choicesList.filter(
       eachChoice => eachChoice.id === activeChoice,
     )
     const randomChoiceImage = choicesList[randomChoice]
 
-    console.log(`randomChoiceImage`, randomChoiceImage)
-    console.log(`activeChoiceImage`, activeChoiceImage)
+    // console.log(`randomChoiceImage`, randomChoiceImage)
+    // console.log(`activeChoiceImage`, activeChoiceImage)
 
     return (
       <div className="app-container">
@@ -131,7 +136,6 @@ class App extends Component {
           <RockPaperScissor
             choices={choicesList}
             clickChoice={this.clickChoice}
-            // getResult={this.getResult}
           />
         )}
       </div>
