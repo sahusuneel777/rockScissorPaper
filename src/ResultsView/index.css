@@ -1,0 +1,40 @@
+.results-view-container {
+  padding: 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.result-image {
+  width: 140px;
+  height: 140px;
+}
+.users-card-container {
+  display: flex;
+}
+.user-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.user {
+  font-size: 20px;
+  font-weight: 600;
+  font-family: Roboto;
+  color: #fff;
+}
+
+.custom-btn {
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  outline: none;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  color: #223a5f;
+  background-color: #fff;
+  font-weight: 600;
+}
